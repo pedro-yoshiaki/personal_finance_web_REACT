@@ -1,0 +1,52 @@
+.resumo-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resumo-section h2 {
+  color: #2c3e50;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.resumo-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.resumo-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 4px solid #bdc3c7;
+}
+
+.resumo-card.receita  { border-top-color: #27ae60; }
+.resumo-card.despesa  { border-top-color: #e74c3c; }
+.resumo-card.positivo { border-top-color: #2980b9; }
+.resumo-card.negativo { border-top-color: #e74c3c; }
+
+.resumo-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7f8c8d;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.resumo-valor {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.resumo-card.receita  .resumo-valor { color: #27ae60; }
+.resumo-card.despesa  .resumo-valor { color: #e74c3c; }
+.resumo-card.positivo .resumo-valor { color: #2980b9; }
+.resumo-card.negativo .resumo-valor { color: #e74c3c; }
