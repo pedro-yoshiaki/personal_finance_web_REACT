@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Controle de Gastos e Orçamento 💰
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Projeto Web II** - Aplicação web desenvolvida em dupla, com o objetivo de gerenciar finanças pessoais através de operações CRUD.
 
-## Available Scripts
+## 📋 Sobre o Projeto
 
-In the project directory, you can run:
+Este projeto é uma Single Page Application (SPA) para "Controle de Gastos e Orçamento". A aplicação permite o gerenciamento de movimentações financeiras, auxiliando no controle de despesas e receitas. O foco é a integração de um frontend em **React** com uma API simulada utilizando **json-server**.
 
-### `npm start`
+## ✨ Funcionalidades (CRUD)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O sistema permite as quatro operações básicas:
+* **Create (Cadastrar):** Inserir novos gastos ou receitas no sistema.
+* **Read (Listar):** Visualizar todas as transações financeiras cadastradas.
+* **Update (Atualizar):** Modificar informações de uma transação existente.
+* **Delete (Excluir):** Remover registros de gastos ou receitas.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Tecnologias e Arquitetura
 
-### `npm test`
+* **Frontend (Interface):** React.js
+* **Backend (API Fake):** json-server 
+* **Banco de Dados:** Arquivo `db.json`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Como rodar o projeto localmente
 
-### `npm run build`
+**1. Clone o repositório e acesse a pasta:**
+```bash
+git clone <https://github.com/pedro-yoshiaki/personal_finance_web_REACT.git>
+cd frontend_personal_finance
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. Instale as dependências**
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**3. Inicie o servidor (API Fake)**
+Este comando iniciará o banco de dados na porta 3001. Mantenha este terminal aberto.
+```bash
+npx json-server --watch db.json --port 3001
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**4. Inicie o Frontend (React):**
+Abra um novo terminal na mesma pasta e inicie a interface:
+```bash
+npm start
+```
+A aplicação abrirá automaticamente no navegador em http://localhost:3000.
 
-### `npm run eject`
+## 👥 Equipe
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* **Matheus Soares Nascimento**
+* **Pedro Yoshiaki Freitas Nohara**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
