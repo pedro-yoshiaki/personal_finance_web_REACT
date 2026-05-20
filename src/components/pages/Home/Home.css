@@ -1,0 +1,137 @@
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Estilos do Formulário */
+  .form-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-section h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .transaction-form input,
+  .transaction-form select {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .btn-salvar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-salvar:hover {
+    background-color: #219653;
+  }
+  
+  /* Estilos da Listagem */
+  .list-section h2 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #bdc3c7;
+  }
+  
+  /* Diferenciação de Cores: Receita vs Despesa */
+  .transaction-item.receita {
+    border-left-color: #27ae60;
+  }
+  
+  .transaction-item.despesa {
+    border-left-color: #e74c3c;
+  }
+  
+  .transaction-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .transaction-info strong {
+    font-size: 16px;
+    color: #34495e;
+  }
+  
+  .categoria-badge {
+    font-size: 12px;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    padding: 2px 8px;
+    border-radius: 12px;
+    align-self: flex-start;
+  }
+  
+  .transaction-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .transaction-actions .valor {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-excluir:hover {
+    background-color: #c0392b;
+  }
