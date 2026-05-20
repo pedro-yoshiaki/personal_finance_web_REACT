@@ -1,0 +1,18 @@
+{
+    "transacoes": [
+      {
+        "id": "1",
+        "descricao": "Salário Mensal",
+        "valor": 3500.00,
+        "tipo": "receita",
+        "categoria": "Trabalho"
+      },
+      {
+        "id": "2",
+        "descricao": "Supermercado",
+        "valor": 450.75,
+        "tipo": "despesa",
+        "categoria": "Alimentação"
+      }
+    ]
+  }
