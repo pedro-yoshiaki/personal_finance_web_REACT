@@ -1,0 +1,45 @@
+/* Estilos do Formulário */
+.form-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-section h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .transaction-form input,
+  .transaction-form select {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .btn-salvar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-salvar:hover {
+    background-color: #219653;
+  }

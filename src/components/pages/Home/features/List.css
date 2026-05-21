@@ -1,0 +1,123 @@
+/* Estilos da Listagem */
+.list-section h2 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #bdc3c7;
+  }
+  
+  /* Diferenciação de Cores: Receita vs Despesa */
+  .transaction-item.receita {
+    border-left-color: #27ae60;
+  }
+  
+  .transaction-item.despesa {
+    border-left-color: #e74c3c;
+  }
+  
+  .transaction-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .transaction-info strong {
+    font-size: 16px;
+    color: #34495e;
+  }
+  
+  .categoria-badge {
+    font-size: 12px;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    padding: 2px 8px;
+    border-radius: 12px;
+    align-self: flex-start;
+  }
+  
+  .transaction-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .transaction-actions .valor {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-excluir:hover {
+    background-color: #c0392b;
+  }
+
+.btn-editar {
+  background-color: transparent;
+  color: #444;
+  border: 1px solid #2a2a2a;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-editar:hover {
+  border-color: #4a6a8c;
+  color: #6a9aad;
+}
+
+.btn-cancelar {
+  grid-column: 1 / -1;
+  background-color: transparent;
+  color: #555;
+  border: 1px solid #2a2a2a;
+  padding: 13px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-cancelar:hover {
+  border-color: #444;
+  color: #888;
+}

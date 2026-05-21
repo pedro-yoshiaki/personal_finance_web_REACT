@@ -1,18 +1,28 @@
 {
-    "transacoes": [
-      {
-        "id": "1",
-        "descricao": "Salário Mensal",
-        "valor": 3500.00,
-        "tipo": "receita",
-        "categoria": "Trabalho"
-      },
-      {
-        "id": "2",
-        "descricao": "Supermercado",
-        "valor": 450.75,
-        "tipo": "despesa",
-        "categoria": "Alimentação"
-      }
-    ]
-  }
+  "transacoes": [
+    {
+      "id": "1",
+      "descricao": "Salário Mensal",
+      "valor": 3500.00,
+      "tipo": "receita",
+      "categoria": "Trabalho",
+      "data": "2026-05-05" 
+    },
+    {
+      "id": "2",
+      "descricao": "Supermercado",
+      "valor": 450.75,
+      "tipo": "despesa",
+      "categoria": "Alimentação",
+      "data": "2026-05-15"
+    },
+    {
+      "id": "3",
+      "descricao": "Conta de Luz",
+      "valor": 120.00,
+      "tipo": "despesa",
+      "categoria": "Moradia",
+      "data": "2026-04-10"
+    }
+  ]
+}

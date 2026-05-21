@@ -2,19 +2,67 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import Resumo from './Resumo/Resumo.js';
 import Graficos from './Graficos/Graficos.js';
+import FiltroAno from './features/FiltroAno.js';
+import Form from './features/Form.js';
+import FiltroMeses from './features/FiltroMeses.js';
+import List from './features/List.js';
 
 const URL = "http://localhost:3001/transacoes";
 
 function Home() {
+  
+// ============================================ ESTADOS ============================================
   const [transacoes, setTransacoes] = useState([]);
+
+  const [mesesFiltro, setMesesFiltro] = useState([]);
+  // O estado do ano (vazio = mostra todos os anos)
+  const [anoFiltro, setAnoFiltro] = useState("");
+
   const [form, setForm] = useState({
     descricao: "",
     valor: "",
     tipo: "despesa",
-    categoria: ""
+    categoria: "",
+    data: ""
   });
+
   const [editandoId, setEditandoId] = useState(null);
 
+// ======================================== LÓGICA DE FILTROS ========================================
+  // Função que lida com o clique no checkbox
+  const handleFiltroChange = (mes) => {
+    if (mesesFiltro.includes(mes)) {
+      // Se o mês já está na lista (desmarcando), nós o removemos
+      setMesesFiltro(mesesFiltro.filter((m) => m !== mes));
+    } else {
+      // Se não está na lista (marcando), nós o adicionamos
+      setMesesFiltro([...mesesFiltro, mes]);
+    }
+  };
+
+  // Lógica para filtrar as transações
+  const transacoesFiltradas = transacoes.filter((transacao) => {
+    // Extraímos o ano (posição 0) e o mês (posição 1) da data "YYYY-MM-DD"
+    const anoDaTransacao = transacao.data.split('-')[0]; 
+    const mesDaTransacao = transacao.data.split('-')[1]; 
+  
+    // 1. Verificação do Ano: Passa se o filtro estiver vazio OU se o ano for igual ao selecionado
+    const passouNoAno = anoFiltro === "" || anoDaTransacao === anoFiltro;
+  
+    // 2. Verificação do Mês: Passa se nenhum mês estiver marcado OU se o mês estiver na lista
+    const passouNoMes = mesesFiltro.length === 0 || mesesFiltro.includes(mesDaTransacao);
+  
+    // A transação SÓ aparece na tela se passar nos DOIS testes
+    return passouNoAno && passouNoMes;
+  });
+
+    // Função para limpar todos os filtros com um clique
+    const limparFiltros = () => {
+      setAnoFiltro("");    // Volta o ano para a opção "Todos os Anos"
+      setMesesFiltro([]);  // Desmarca todos os checkboxes de meses
+    };
+
+// ======================================= REQUISIÇÕES DA API =======================================
   async function carregarTransacoes() {
     try {
       const resposta = await fetch(URL);
@@ -65,6 +113,15 @@ function Home() {
     }
   }
 
+  async function removerTransacao(id) {
+    try {
+      await fetch(`${URL}/${id}`, { method: "DELETE" });
+      carregarTransacoes();
+    } catch (erro) {
+      console.error("Erro ao deletar:", erro);
+    }
+  }
+// ==================================== CONTROLE DO FORMULÁRIO ====================================
   // Preenche o formulário com os dados da transação selecionada para edição
   function iniciarEdicao(transacao) {
     setEditandoId(transacao.id);
@@ -83,98 +140,43 @@ function Home() {
     setForm({ descricao: "", valor: "", tipo: "despesa", categoria: "" });
   }
 
-  async function removerTransacao(id) {
-    try {
-      await fetch(`${URL}/${id}`, { method: "DELETE" });
-      carregarTransacoes();
-    } catch (erro) {
-      console.error("Erro ao deletar:", erro);
-    }
-  }
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // =================================== RENDERIZAÇÃO DA TELA ===================================
   return (
       <main className="home-container">
-        <section className="form-section">
-          <h2>{editandoId !== null ? "Editar Transação" : "Nova Transação"}</h2>
-          <form onSubmit={salvarTransacao} className="transaction-form">
-            <input
-                type="text"
-                name="descricao"
-                placeholder="Descrição"
-                value={form.descricao}
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="number"
-                name="valor"
-                placeholder="Valor (R$)"
-                step="0.01"
-                value={form.valor}
-                onChange={handleChange}
-                required
-            />
-            <select name="tipo" value={form.tipo} onChange={handleChange}>
-              <option value="despesa">Despesa</option>
-              <option value="receita">Receita</option>
-            </select>
-            <input
-                type="text"
-                name="categoria"
-                placeholder="Categoria"
-                value={form.categoria}
-                onChange={handleChange}
-                required
-            />
-            <button type="submit" className="btn-salvar">
-              {editandoId !== null ? "Atualizar Transação" : "Salvar Transação"}
-            </button>
-            {editandoId !== null && (
-                <button type="button" className="btn-cancelar" onClick={cancelarEdicao}>
-                  Cancelar
-                </button>
-            )}
-          </form>
-        </section>
+
+        {/* Passando anoFiltro e a função setAnoFiltro como props */}
+        <FiltroAno anoFiltro={anoFiltro} setAnoFiltro={setAnoFiltro} />
+
+        <Form 
+          form={form} 
+          editandoId={editandoId} 
+          handleChange={handleChange} 
+          salvarTransacao={salvarTransacao} 
+          cancelarEdicao={cancelarEdicao} 
+        />
+        
+        <FiltroMeses 
+          mesesFiltro={mesesFiltro} 
+          handleFiltroChange={handleFiltroChange} 
+          limparFiltros={limparFiltros} 
+        />
 
         {/* Resumo financeiro: receitas, despesas e saldo */}
-        <Resumo transacoes={transacoes} />
+        <Resumo transacoes={transacoesFiltradas} />
 
         {/* Gráficos de barras e pizza */}
-        <Graficos transacoes={transacoes} />
+        <Graficos transacoes={transacoesFiltradas} />
 
-        <section className="list-section">
-          <h2>Movimentações</h2>
-          {transacoes.length === 0 ? (
-              <p>Nenhuma transação cadastrada.</p>
-          ) : (
-              <ul className="transaction-list">
-                {transacoes.map((transacao) => (
-                    <li key={transacao.id} className={`transaction-item ${transacao.tipo}`}>
-                      <div className="transaction-info">
-                        <strong>{transacao.descricao}</strong>
-                        <span className="categoria-badge">{transacao.categoria}</span>
-                      </div>
-                      <div className="transaction-actions">
-                  <span className="valor">
-                    R$ {transacao.valor.toFixed(2)}
-                  </span>
-                        <button onClick={() => iniciarEdicao(transacao)} className="btn-editar">
-                          Editar
-                        </button>
-                        <button onClick={() => removerTransacao(transacao.id)} className="btn-excluir">
-                          Excluir
-                        </button>
-                      </div>
-                    </li>
-                ))}
-              </ul>
-          )}
-        </section>
+        <List 
+          transacoes={transacoesFiltradas} 
+          iniciarEdicao={iniciarEdicao} 
+          removerTransacao={removerTransacao} 
+        />
+
       </main>
   );
 }
