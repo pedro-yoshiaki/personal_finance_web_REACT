@@ -104,7 +104,7 @@ function Home() {
       }
 
       // Limpa o formulário após salvar
-      setForm({ descricao: "", valor: "", tipo: "despesa", categoria: "" });
+      setForm({ descricao: "", valor: "", data: "", tipo: "despesa", categoria: "" });
 
       // Recarrega a lista para refletir as mudanças
       carregarTransacoes();
@@ -128,6 +128,7 @@ function Home() {
     setForm({
       descricao: transacao.descricao,
       valor: transacao.valor,
+      data: transacao.data,
       tipo: transacao.tipo,
       categoria: transacao.categoria
     });
@@ -137,7 +138,7 @@ function Home() {
   // Cancela a edição e restaura o formulário ao estado inicial
   function cancelarEdicao() {
     setEditandoId(null);
-    setForm({ descricao: "", valor: "", tipo: "despesa", categoria: "" });
+    setForm({ descricao: "", valor: "", data: "", tipo: "despesa", categoria: "" });
   }
 
   const handleChange = (e) => {
