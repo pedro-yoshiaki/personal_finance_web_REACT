@@ -1,0 +1,73 @@
+.filtro-meses {
+    background-color: #f4f6f8;
+    border: 1px solid #dce3ea;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  
+  .filtro-meses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  
+  .filtro-meses-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a3a5c;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  
+  .filtro-meses-limpar {
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #1a3a5c;
+    background-color: #fff;
+    border: 1.5px solid #1a3a5c;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  
+  .filtro-meses-limpar:hover {
+    border-color: #e8a020;
+    color: #e8a020;
+  }
+  
+  .filtro-meses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .filtro-mes-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: #1a3a5c;
+    background-color: #fff;
+    border: 1.5px solid #dce3ea;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+    user-select: none;
+  }
+  
+  .filtro-mes-item input[type="checkbox"] {
+    display: none;
+  }
+  
+  .filtro-mes-item:hover {
+    border-color: #1a3a5c;
+  }
+  
+  .filtro-mes-item.ativo {
+    background-color: #1a3a5c;
+    border-color: #1a3a5c;
+    color: #fff;
+  }

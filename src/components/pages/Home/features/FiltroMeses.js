@@ -1,8 +1,7 @@
 import React from 'react';
+import './FiltroMeses.css';
 
 function FiltroMeses({ mesesFiltro, handleFiltroChange, limparFiltros }) {
-  
-  // Array auxiliar para gerar os checkboxes sem precisar copiar e colar 12 vezes
   const mesesDoAno = [
     { num: "01", nome: "Janeiro" }, { num: "02", nome: "Fevereiro" },
     { num: "03", nome: "Março" }, { num: "04", nome: "Abril" },
@@ -14,28 +13,25 @@ function FiltroMeses({ mesesFiltro, handleFiltroChange, limparFiltros }) {
 
   return (
     <div className="filtro-meses">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-        <p style={{ margin: 0 }}><strong>Filtrar por Meses:</strong></p>
-        <button 
-          onClick={limparFiltros} 
-          style={{ 
-            padding: '5px 10px', backgroundColor: 'transparent', 
-            border: '1px solid #7f8c8d', borderRadius: '4px', cursor: 'pointer',
-            fontSize: '12px', color: '#7f8c8d'
-          }}
-        >
-          Limpar Filtros ❌
+      <div className="filtro-meses-header">
+        <span className="filtro-meses-label">Filtrar por Meses</span>
+        <button className="filtro-meses-limpar" onClick={limparFiltros}>
+          Limpar Filtros ✕
         </button>
       </div>
-      
-      <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '20px' }}>
+
+      <div className="filtro-meses-grid">
         {mesesDoAno.map((mes) => (
-          <label key={mes.num}>
-            <input 
-              type="checkbox" 
-              checked={mesesFiltro.includes(mes.num)} 
-              onChange={() => handleFiltroChange(mes.num)} 
-            /> {mes.nome}
+          <label
+            key={mes.num}
+            className={`filtro-mes-item ${mesesFiltro.includes(mes.num) ? 'ativo' : ''}`}
+          >
+            <input
+              type="checkbox"
+              checked={mesesFiltro.includes(mes.num)}
+              onChange={() => handleFiltroChange(mes.num)}
+            />
+            {mes.nome}
           </label>
         ))}
       </div>
