@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import Resumo from './Resumo/Resumo.js';
-import Graficos from './Graficos/Graficos.js';
+import Resumo from './resumo/Resumo.js';
+import Graficos from './graficos/Graficos.js';
 import FiltroAno from './features/FiltroAno.js';
 import Form from './features/Form.js';
 import FiltroMeses from './features/FiltroMeses.js';
