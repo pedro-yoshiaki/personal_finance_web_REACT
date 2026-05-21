@@ -83,6 +83,26 @@ function Home() {
   // ==========================================
   async function salvarTransacao(e) {
     e.preventDefault();
+
+    // ==========================================
+    // 1. VALIDAÇÕES DO FORMULÁRIO
+    // ==========================================
+    
+    // Extrai apenas o ano da data (formato YYYY-MM-DD) e converte para número
+    const anoDigitado = parseInt(form.data.split('-')[0]);
+
+    // Validação da Data: Impede anos absurdos
+    if (anoDigitado < 2020 || anoDigitado > 3500) {
+      alert("Por favor, insira um ano coerente (A partir de 2021).");
+      return; // Interrompe a função aqui, impedindo que o código abaixo seja executado
+    }
+
+    // Validação do Valor: Impede que o usuário salve gastos com valor zero ou negativo
+    if (parseFloat(form.valor) <= 0) {
+      alert("O valor da transação deve ser maior que zero.");
+      return; 
+    }
+
     const dados = { ...form, valor: parseFloat(form.valor) };
 
     try {
