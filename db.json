@@ -3,18 +3,18 @@
     {
       "id": "1",
       "descricao": "Salário Mensal",
-      "valor": 3500.00,
+      "valor": 4500.00,
       "tipo": "receita",
-      "categoria": "Trabalho",
-      "data": "2026-05-05" 
+      "categoria": "Salário",
+      "data": "2026-05-05"
     },
     {
       "id": "2",
       "descricao": "Supermercado",
-      "valor": 450.75,
+      "valor": 650.50,
       "tipo": "despesa",
       "categoria": "Alimentação",
-      "data": "2026-05-15"
+      "data": "2026-05-12"
     },
     {
       "id": "3",
@@ -23,6 +23,14 @@
       "tipo": "despesa",
       "categoria": "Moradia",
       "data": "2026-04-10"
+    },
+    {
+      "id": "4",
+      "descricao": "Manutenção Carro",
+      "valor": 800.00,
+      "tipo": "despesa",
+      "categoria": "Transporte",
+      "data": "2025-12-15"
     }
   ]
 }
