@@ -1,45 +1,130 @@
-/* Estilos do Formulário */
 .form-section {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .form-section h2 {
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .transaction-form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .transaction-form input,
-  .transaction-form select {
-    flex: 1;
-    min-width: 150px;
-    padding: 10px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .btn-salvar {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-salvar:hover {
-    background-color: #219653;
-  }
+  background-color: #ffffff;
+  padding: 24px 28px;
+  border-radius: 8px;
+  border: 1px solid #dce3ea;
+  margin-bottom: 8px;
+}
+
+.form-titulo {
+  margin: 0 0 20px 0;
+  color: #1a3a5c;
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #e8a020;
+  display: inline-block;
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.form-row--bottom {
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 130px;
+}
+
+.form-group--sm {
+  flex: 0 1 150px;
+}
+
+.form-group--grow {
+  flex: 2;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.transaction-form input,
+.transaction-form select {
+  padding: 9px 12px;
+  border: 1.5px solid #dce3ea;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a3a5c;
+  background-color: #fff;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus {
+  outline: none;
+  border-color: #1a3a5c;
+}
+
+.transaction-form select.tipo-receita {
+  color: #1a7a45;
+  border-color: #1a7a45;
+  background-color: #f0faf4;
+}
+
+.transaction-form select.tipo-despesa {
+  color: #c0392b;
+  border-color: #c0392b;
+  background-color: #fdf4f3;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.btn-salvar {
+  background-color: #1a3a5c;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-salvar:hover {
+  background-color: #e8a020;
+}
+
+.btn-cancelar {
+  background-color: transparent;
+  color: #7f8c8d;
+  border: 1.5px solid #bdc3c7;
+  padding: 9px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-cancelar:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+}
